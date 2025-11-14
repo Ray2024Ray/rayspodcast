@@ -1,5 +1,5 @@
 ---
-title: 所有节目
+title: All Episodes
 layout: default
 permalink: /episodes.html
 body_class: episode-page
