@@ -2,14 +2,16 @@ footer_menu__settings:
   menu__items:
     - title: 'Home'
       url: '/'
-    - title: 'Projects'
-      url: '/projects/'
-    - title: 'Elements'
-      url: '/elements/'
-    - title: 'About'
-      url: '/about/'
-    - title: 'Blog'
-      url: '/blog/'
+    - title: 'All Episodes'
+      url: '/episodes.html'
+    - title: 'English Episodes'
+      url: '/episodes_en.html'
+    - title: 'Chinese Episodes'
+      url: '/episodes_zh.html'
+    - title: 'Korean Episodes'
+      url: '/episodes_ko.html'
+    - title: 'Contact Me'
+      url: '/contact/'
 
 copyright_text_html: >-
   <p> 2021 &copy; <a href="/">Vonge</a>. Template by <a href="https://cloudcannon.com/">CloudCannon</a>.</p>
