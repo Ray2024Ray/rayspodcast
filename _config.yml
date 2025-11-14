@@ -1,8 +1,8 @@
 # Site settings
 title: Ray'sPodcast
 description: "Cross-cultural Stories | 他乡与故乡"
-url: "https://Ray2024Ray.github.io"
-baseurl: "/rayspodcast"
+url: "https://www.crossculturalstories.me"
+baseurl: ""
 permalink: /:categories/:title/
 
 # Podcast settings
