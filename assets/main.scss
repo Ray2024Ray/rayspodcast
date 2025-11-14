@@ -1,0 +1,50 @@
+---
+---
+@charset "UTF-8";
+
+// This file imports all the SCSS partials in a standard, non-Bookshop way.
+
+// 0. Settings
+@import "../component-library/shared/styles/0-settings/A_variables";
+@import "../component-library/shared/styles/0-settings/B_color-scheme";
+@import "../component-library/shared/styles/0-settings/C_mixins";
+@import "../component-library/shared/styles/0-settings/D_helpers";
+
+// 1. Tools
+@import "../component-library/shared/styles/1-tools/A_normalize";
+@import "../component-library/shared/styles/1-tools/B_reset";
+@import "../component-library/shared/styles/1-tools/C_shared";
+@import "../component-library/shared/styles/1-tools/D_syntax-highlighting";
+@import "../component-library/shared/styles/1-tools/E_grid";
+@import "../component-library/shared/styles/1-tools/F_tiny-slider";
+@import "../component-library/shared/styles/1-tools/G_animate";
+
+// 2. Base
+@import "../component-library/shared/styles/2-base/base";
+
+// 3. Modules & Components
+@import "../component-library/shared/styles/3-modules/footer";
+@import "../component-library/shared/styles/3-modules/header";
+@import "../component-library/shared/styles/3-modules/pagination";
+@import "../component-library/shared/styles/3-modules/scroll-button-top";
+@import "../component-library/shared/styles/3-modules/sections";
+@import "../component-library/shared/styles/3-modules/social-links";
+
+@import "../component-library/components/blog-card/blog-card";
+@import "../component-library/components/blog-section/blog-section";
+@import "../component-library/components/button/button";
+@import "../component-library/components/contact-form/contact-form";
+@import "../component-library/components/content/content";
+@import "../component-library/components/hero/hero";
+@import "../component-library/components/newsletter/newsletter";
+@import "../component-library/components/page-heading/page-heading";
+@import "../component-library/components/page-image/page-image";
+@import "../component-library/components/posts-list/posts-list";
+@import "../component-library/components/project-card/project-card";
+@import "../component-library/components/projects-list/projects-list";
+@import "../component-library/components/projects-section/projects-section";
+@import "../component-library/components/testimonial-card/testimonial-card";
+@import "../component-library/components/testimonials-section/testimonials-section";
+
+// 4. Layouts
+@import "../component-library/shared/styles/4-layouts/page-layout";

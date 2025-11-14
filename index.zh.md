@@ -1,0 +1,105 @@
+---
+layout: default
+title: 首页
+lang: zh
+---
+
+<!-- 这里放现在的中文首页内容（你的 Hero + 订阅按钮 + 最新节目…） -->
+<section class="c-hero">
+  <div class="container">
+    <div class="c-hero__inner row">
+      <!-- 左侧：标题 + 文案 + 按钮 -->
+      <div class="c-hero__left col col-6">
+        <h1 class="c-hero__title">他乡与故乡</h1>
+
+        <div class="c-hero__description">
+          <p>每一个离开故乡的人，都在他乡带着一只看不见的行囊。 里面装着语言、习惯、回忆、偏见，也装着成长与挣扎。 我是 Ray，一位旅居海外的化学工程师+博士。在这档播客里，我将用中文、英文或韩文，采访我身边的朋友、家人和异国旅人，一起聊聊我们在“家乡”与“他乡”之间的故事。 我们会谈文化差异，也会谈孤独；会分享跨文化婚姻、职场挑战，也会记录日常生活中最细小的柔软时刻。希望你能在这里，听见你自己的故事。</p>
+        </div>
+
+        <!-- 订阅平台（只出现一次） -->
+        <div class="subscribe-section" style="margin-top:28px;">
+          <p style="font-weight:600;margin-bottom:10px;">订阅平台：</p>
+          <div class="subscribe-buttons">
+            {% if site.podcast.spotify_show %}
+            <a class="c-button c-button--primary c-button--small" href="{{ site.podcast.spotify_show }}" target="_blank" rel="noopener">
+              <img src="{{ '/images/spotify-icon.png' | relative_url }}" alt="Spotify" style="height:18px;">Spotify
+            </a>
+            {% endif %}
+
+            {% if site.podcast.castbox_show %}
+            <a class="c-button c-button--secondary c-button--small" href="{{ site.podcast.castbox_show }}" target="_blank" rel="noopener">
+              <img src="{{ '/images/castbox-icon.png' | relative_url }}" alt="Castbox" style="height:18px;">Castbox
+            </a>
+            {% endif %}
+
+            {% if site.podcast.apple_show %}
+            <a class="c-button c-button--secondary c-button--small" href="{{ site.podcast.apple_show }}" target="_blank" rel="noopener">
+              <img src="{{ '/images/apple-icon.png' | relative_url }}" alt="Apple Podcasts" style="height:18px;">Apple Podcasts
+            </a>
+            {% endif %}
+
+            {% if site.podcast.xiaoyuzhou_show %}
+            <a class="c-button c-button--secondary c-button--small" href="{{ site.podcast.xiaoyuzhou_show }}" target="_blank" rel="noopener">
+              <img src="{{ '/images/xiaoyuzhou-icon.png' | relative_url }}" alt="小宇宙" style="height:18px;">小宇宙
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧：封面图 -->
+      <div class="c-hero__right col col-6">
+        <div class="c-hero__image">
+          <img src="{{ '/images/podcast-cover.png' | relative_url }}" alt="Cross-cultural Stories 封面">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest Episodes：自动抓取站内最近的 6 期（3×2） -->
+<section class="section">
+  <div class="container">
+    <div class="section__info">
+      <div class="section__head">
+        <h2 class="section__title">Latest Episodes</h2>
+        <a class="section__link" href="{{ '/episodes/' | relative_url }}">View all <i class="ion-md-arrow-forward"></i></a>
+      </div>
+      <div class="section__description">
+      </div>
+    </div>
+
+    <div class="row">
+      {% assign eps_all = site.episodes | default: empty %}
+      {% if eps_all and eps_all != empty %}
+        {% assign latest_eps = site.episodes | where: "lang", site.active_lang | sort: "date" | reverse | slice: 0, 6 %}
+        {% for ep in latest_eps %}
+        <div class="col col-4 col-t-6 col-m-12">
+          <article class="c-blog-card">
+            <div class="c-blog-card__inner">
+              <a class="c-blog-card__image" href="{{ ep.spotify | default: ep.external_url }}" target="_blank" rel="noopener">
+                <img src="{{ ep.cover | default: '/images/podcast-cover.png' | relative_url }}" alt="{{ ep.title | escape }}">
+              </a>
+              <div class="c-blog-card__content">
+                <div class="c-blog-card__tags-box">
+                  {% for tag in ep.tags limit:2 %}<span class="c-blog-card__tag">{{ tag }}</span>{% endfor %}
+                </div>
+                <h3 class="c-blog-card__title">
+                  <a href="{{ ep.spotify | default: ep.external_url }}" target="_blank" rel="noopener">{{ ep.title }}</a>
+                </h3>
+                {% if ep.excerpt %}<p class="c-blog-card__excerpt">{{ ep.excerpt }}</p>{% endif %}
+              </div>
+            </div>
+          </article>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="col col-12">
+          <p>（还没有节目条目。请在 <code>site/collections/_episodes/</code> 新增 6 篇带 <code>title/date/spotify/cover</code> 的 md 文件。）</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% include contact_form.html %}
+
+</section>

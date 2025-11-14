@@ -1,0 +1,95 @@
+# Site settings
+title: Ray'sPodcast
+description: "Cross-cultural Stories | 他乡与故乡"
+url: "https://Ray2024Ray.github.io"
+baseurl: "/cross-cultural-stories-website"
+permalink: /:categories/:title/
+
+# Podcast settings
+podcast:
+  name: " Cross-cultural Stories | 他乡与故乡"
+  tagline: "跨文化的相遇与共鸣｜Stories of identity, belonging, and becoming"
+  cover: "/images/podcast-cover.png"   
+  spotify_show: "https://open.spotify.com/show/6SNCpFk0GlnuIaLw8D3QGA"
+  apple_show: "https://podcasts.apple.com/us/podcast/cross-cultural-stories/id1831182815"        
+  xiaoyuzhou_show: "https://www.xiaoyuzhoufm.com/podcast/686cb2e71408ff0abb1ee127"   
+  costbox_show: "https://castbox.fm/vh/6702883"
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-polyglot
+
+include: ['_includes', 'component-library']
+
+bookshop:
+  bookshopLocations:
+    - component-library
+
+# Polyglot settings
+languages: ["en", "zh", "ko"]
+default_lang: "en"
+parallel_localization: true
+exclude_from_localization:
+  - assets
+  - images
+  - css
+  - js
+  - _site
+  - CNAME
+localized_collections:
+  - episodes
+
+# Collections settings
+collections_dir: 'collections'
+collections:
+  episodes:
+    output: true
+    permalink: /episodes/:name/
+  projects:
+    output: true
+    permalink: /project/:slug
+  testimonials:
+    output: false
+  posts:
+    output: true
+    permalink: /blog/:slug
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      type: pages
+      path: _pages/index.html
+    values:
+      permalink: /
+  - scope:
+      type: projects
+    values:
+      layout: project
+  - scope:
+      type: posts
+    values:
+      layout: post
+
+# Tagging settings
+tag_page_dir: tag
+tag_page_layout: tag_page
+tag_permalink_style: /:title
+
+# Sass settings for the new standard build process
+sass:
+  load_paths:
+    - _sass
+    - component-library
+
+# Exclude from processing
+exclude:
+  - postcss.config.js
+  - node_modules
+  - Gemfile
+  - Gemfile.lock

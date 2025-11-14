@@ -1,0 +1,37 @@
+<!-- begin header -->
+<header class="cc-header">
+  <div class="header__inner">
+    <!-- 左：Home -->
+    <a class="brand" href="{{ '/' | relative_url }}">Home</a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="{{ site.baseurl }}/episodes.html" class="nav__link">All episodes</a></li>
+        <li><a href="{{ site.baseurl }}/episodes_en.html" class="nav__link">English episodes</a></li>
+        <li><a href="{{ site.baseurl }}/episodes_zh.html" class="nav__link">Chinese Episodes</a></li>
+        <li><a href="{{ site.baseurl }}/episodes_ko.html" class="nav__link">Korean Episodes</a></li>
+      </ul>
+    </nav>
+
+    <!-- 右：先汉堡，再语言（语言在最右边） -->
+        <div class="header-right">
+          <a href="{{ site.baseurl }}/contact/" class="nav__link">Contact Me</a>
+          <!-- <button class="nav-toggle" id="ccMenuBtn" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button> -->
+        </div>
+
+    <!-- 下拉菜单（竖排） -->
+    <!-- <nav class="main-nav" id="ccMainNav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="{{ '/episodes/'     | relative_url }}" class="nav__link">All episodes</a></li>
+        <li><a href="{{ '/episodes/en/'  | relative_url }}" class="nav__link">All English episodes</a></li>
+        <li><a href="{{ '/episodes/zh/'  | relative_url }}" class="nav__link">所有中文专辑</a></li>
+        <li><a href="{{ '/episodes/ko/'  | relative_url }}" class="nav__link">모든 한국어 에피소드</a></li>
+        <li><a href="{{ '/contact/'      | relative_url }}" class="nav__link">Get in touch</a></li>
+      </ul>
+    </nav> -->
+  </div>
+</header>
+<!-- end header -->
+<script src="{{ '/assets/js/menu.js' | relative_url }}?v=1" defer></script>
