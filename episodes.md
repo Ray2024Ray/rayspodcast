@@ -5,7 +5,7 @@ permalink: /episodes.html
 body_class: episode-page
 ---
 
-# 所有节目
+# All Episodes
 
 <div class="row">
 {% assign eps = site.episodes | sort: "date" | reverse %}
