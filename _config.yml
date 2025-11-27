@@ -19,27 +19,12 @@ podcast:
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-polyglot
 
 include: ['_includes', 'component-library']
 
 bookshop:
   bookshopLocations:
     - component-library
-
-# Polyglot settings
-languages: ["en", "zh", "ko"]
-default_lang: "en"
-parallel_localization: true
-exclude_from_localization:
-  - assets
-  - images
-  - css
-  - js
-  - _site
-  - CNAME
-localized_collections:
-  - episodes
 
 # Collections settings
 collections_dir: 'collections'

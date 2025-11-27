@@ -89,26 +89,29 @@ def main():
         return
 
     # 1. 加载已有的播客数据
-    existing_episodes = []
     existing_guids = set()
-    
-    if os.path.exists(DATA_FILE_PATH):
-        try:
-            with open(DATA_FILE_PATH, 'r', encoding='utf-8') as f:
-                existing_episodes = yaml.safe_load(f) or []
-                if not isinstance(existing_episodes, list):
-                    existing_episodes = []
-                    
-                for ep in existing_episodes:
-                    if ep and ep.get('guid'):
-                        existing_guids.add(ep['guid'])
-            print(f"成功加载 {len(existing_guids)} 条已有的播客数据。")
-        except Exception as e:
-            print(f"警告: 无法读取 {DATA_FILE_PATH}。将创建一个新文件。错误: {e}")
-            existing_episodes = []
-            existing_guids = set()
+    episodes_collection_path = "collections/_episodes"
+    if os.path.exists(episodes_collection_path):
+        for filename in os.listdir(episodes_collection_path):
+            if filename.endswith(".md"):
+                filepath = os.path.join(episodes_collection_path, filename)
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    try:
+                        # Simple YAML front matter parsing
+                        content = f.read()
+                        if content.startswith("---"):
+                            end_of_front_matter = content.find("---", 3)
+                            if end_of_front_matter != -1:
+                                front_matter_str = content[3:end_of_front_matter]
+                                front_matter = yaml.safe_load(front_matter_str)
+                                if front_matter and front_matter.get('guid'):
+                                    existing_guids.add(front_matter['guid'])
+                    except Exception as e:
+                        print(f"警告: 无法解析文件 {filename}。错误: {e}")
+        print(f"成功加载 {len(existing_guids)} 条已有的播客数据。")
     else:
-        print(f"文件 {DATA_FILE_PATH} 未找到，将创建新文件。")
+        print(f"文件夹 {episodes_collection_path} 未找到，将创建新文件夹。")
+        os.makedirs(episodes_collection_path)
 
     # Get the Spotify API credentials from the user
     client_id = input("Enter your Spotify Client ID: ")
@@ -170,24 +173,30 @@ def main():
             new_episodes_found.append(new_ep)
             existing_guids.add(guid) # 确保不会重复添加
 
-    # 3. 将新单集（如果有）写入 YAML 文件
+    # 3. 将新单集（如果有）写入新文件
     if new_episodes_found:
-        print(f"共找到 {len(new_episodes_found)} 条新单集。正在更新 {DATA_FILE_PATH}...")
+        print(f"共找到 {len(new_episodes_found)} 条新单集。正在创建新文件...")
         
-        # 按日期排序 (最新的在最前面)
-        all_episodes = new_episodes_found + existing_episodes
-        # 修复: 确保 None 值的日期不会导致排序崩溃
-        all_episodes.sort(key=lambda x: (x['published_date'] is None, x['published_date']), reverse=True)
-        
-        try:
-            # 确保 _data 文件夹存在
-            os.makedirs(os.path.dirname(DATA_FILE_PATH), exist_ok=True)
-            
-            with open(DATA_FILE_PATH, 'w', encoding='utf-8') as f:
-                yaml.dump(all_episodes, f, allow_unicode=True, sort_keys=False)
-            print(f"成功将 {len(all_episodes)} 条播客数据写入 {DATA_FILE_PATH}。")
-        except Exception as e:
-            print(f"严重错误: 无法写入 YAML 文件。错误: {e}")
+        for new_ep in new_episodes_found:
+            try:
+                # Extract episode number from title
+                import re
+                match = re.search(r"Episode\s*(\d+)", new_ep['title'], re.IGNORECASE)
+                if match:
+                    episode_number = match.group(1)
+                    filename = f"episode-{episode_number}.md"
+                    filepath = os.path.join("collections/_episodes", filename)
+                    
+                    with open(filepath, 'w', encoding='utf-8') as f:
+                        f.write("---\n")
+                        yaml.dump(new_ep, f, allow_unicode=True, sort_keys=False)
+                        f.write("---\n")
+                    print(f"成功创建文件: {filepath}")
+                else:
+                    print(f"警告: 无法从标题中提取集数: {new_ep['title']}")
+
+            except Exception as e:
+                print(f"严重错误: 无法写入文件。错误: {e}")
     else:
         print("没有找到新单集。文件未改动。")
 
