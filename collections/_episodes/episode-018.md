@@ -1,6 +1,5 @@
 ---
-title: 'Episode 018 Making His Hometown an Island of Hope: A Village Chief''s Global
-  Education (English)'
+title: 'Episode 018 Making His Hometown an Island of Hope: A Village Chief''s Global Education (English)'
 guid: d0e25a5f-3f19-4228-83b4-60f945ffcbcf
 link: https://open.spotify.com/episode/3V8wXpOOeflks6F6At9Tss
 published_date: 2025-11-15T01:00:00-0800

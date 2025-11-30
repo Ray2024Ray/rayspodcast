@@ -1,5 +1,5 @@
 ---
-title: Episode 014 From Temple Silence to Stanford Dreams(English)
+title: Episode 014 From Temple Silence to Stanford Dreams (English)
 guid: 00a07533-b24d-46eb-90e4-bd38fe73fa3f
 link: https://open.spotify.com/episode/4sa0g1t8T8NNJT7a7v4dpy
 published_date: 2025-10-17T19:00:00-0800

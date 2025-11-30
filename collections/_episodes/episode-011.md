@@ -1,6 +1,5 @@
 ---
-title: 'Episode 011 Pleasant Melancholy, and the Open Road: Why Nostalgia is Childhood,
-  and Wandering is Exploration'
+title: 'Episode 011 Pleasant Melancholy, and the Open Road: Why Nostalgia is Childhood, and Wandering is Exploration (Chinese)'
 guid: 989251df-6129-4625-91f6-54a9ca7555e6
 link: https://open.spotify.com/episode/71ZZGHyZiV6O5juyKY2C2C
 published_date: 2025-09-26T19:00:00-0800

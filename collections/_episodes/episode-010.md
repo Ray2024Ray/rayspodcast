@@ -1,5 +1,5 @@
 ---
-title: Episode 010 Hometown is Where the Heart Finds Peace(English)
+title: Episode 010 Hometown is Where the Heart Finds Peace (English)
 guid: 1843f87e-6a36-4712-9ccb-b0ffcbff51ae
 link: https://open.spotify.com/episode/2U7dAqHRDl9l7V8jucVLhp
 published_date: 2025-09-19T20:09:34-0800

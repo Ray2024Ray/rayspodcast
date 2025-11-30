@@ -1,5 +1,5 @@
 ---
-title: 'Episode 019 Trust Yourself: A Story of Love, PhDs, and Pastry in a New Land'
+title: 'Episode 019 Trust Yourself: A Story of Love, PhDs, and Pastry in a New Land (English)'
 guid: 686eb3fd-9953-4ecd-8625-db27b5c6365e
 link: https://open.spotify.com/episode/5lRvb5Vp9gi9xh2L1oXUro
 published_date: 2025-11-22T02:26:42-0800

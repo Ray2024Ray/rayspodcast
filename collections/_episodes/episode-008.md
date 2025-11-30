@@ -1,5 +1,5 @@
 ---
-title: Episode 008 The "Me" That Bloomed in a Foreign Land(Korean, Part2)
+title: Episode 008 The "Me" That Bloomed in a Foreign Land (Korean, Part2)
 guid: f4533385-23f1-4508-85c8-67e04f3c3775
 link: https://open.spotify.com/episode/21Rt3nd9G6qdp31rlQh77u
 published_date: 2025-09-12T19:00:00-0800

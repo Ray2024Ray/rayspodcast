@@ -1,6 +1,5 @@
 ---
-title: 'Episode 003 From Emergency Rooms to Classrooms: Suki’s Cross-Cultural Life
-  (Chinese, Part 1)'
+title: 'Episode 003 From Emergency Rooms to Classrooms: Suki’s Cross-Cultural Life (Chinese, Part 1)'
 guid: 94756264-ec71-4e2d-914e-1cd5c7936a8c
 link: https://open.spotify.com/episode/0nVzVo8YYs3zPtvDfHJalS
 published_date: 2025-08-09T05:00:03-0800

@@ -1,5 +1,5 @@
 ---
-title: 'Episode 015 Cultural Close-Ups: Brad''s Story of Volunteering at Stanford(English)'
+title: 'Episode 015 Cultural Close-Ups: Brad''s Story of Volunteering at Stanford (English)'
 guid: b6736746-1578-449f-8770-4a5d5eca71c3
 link: https://open.spotify.com/episode/7vqTCZjvrCChHvCa7rMN6P
 published_date: 2025-10-25T03:29:50-0800

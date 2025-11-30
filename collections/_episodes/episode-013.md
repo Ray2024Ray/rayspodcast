@@ -1,5 +1,5 @@
 ---
-title: 'Episode 013 Growth Defines Home: Yu''En’s Definition of Foreign Land(Chinese)'
+title: 'Episode 013 Growth Defines Home: Yu''En’s Definition of Foreign Land (Chinese)'
 guid: bd32c09d-dd18-409d-819f-f5a4fe2622ec
 link: https://open.spotify.com/episode/5f8EahU20ZRnaC2f7tMkZR
 published_date: 2025-10-10T19:00:00-0800

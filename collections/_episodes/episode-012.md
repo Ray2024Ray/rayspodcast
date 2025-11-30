@@ -1,5 +1,5 @@
 ---
-title: Episode 012 Redefining Homeland and Humanity in the Age of AI(English)
+title: Episode 012 Redefining Homeland and Humanity in the Age of AI (English)
 guid: 645baec9-e0d7-421a-b5ec-f1ea4ca78025
 link: https://open.spotify.com/episode/0zxKj7jjvtrLakLUCdH8FB
 published_date: 2025-10-03T19:00:00-0800

@@ -1,6 +1,5 @@
 ---
-title: 'Episode 004 From Emergency Rooms to Classrooms: Suki’s Cross-Cultural Life
-  (Chinese, Part 2)'
+title: 'Episode 004 From Emergency Rooms to Classrooms: Suki’s Cross-Cultural Life (Chinese, Part 2)'
 guid: defad4e4-0f20-4fc7-9697-801b2b9ce7a3
 link: https://open.spotify.com/episode/3aPtax5IUzo6BxzSEtzyxS
 published_date: 2025-08-16T00:00:00-0800

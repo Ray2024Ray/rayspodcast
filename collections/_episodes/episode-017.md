@@ -1,6 +1,5 @@
 ---
-title: 'Episode 017 A Rock ''n'' Roll Village Chief: A "Tale of Two Cities" from a
-  Hainan Fishing Village to Silicon Valley (Chinese)'
+title: 'Episode 017 A Rock ''n'' Roll Village Chief: A "Tale of Two Cities" from a Hainan Fishing Village to Silicon Valley (Chinese)'
 guid: 8a56b6f1-9435-433c-a99e-3dd57b41c979
 link: https://open.spotify.com/episode/3M1kVGajzOS8rR63zyMCzU
 published_date: 2025-11-07T20:00:00-0800

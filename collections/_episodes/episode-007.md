@@ -1,5 +1,5 @@
 ---
-title: Episode 007 The "Me" That Bloomed in a Foreign Land(Korean, Part1)
+title: Episode 007 The "Me" That Bloomed in a Foreign Land (Korean, Part1)
 guid: 7a217d41-96fe-4bec-a64f-5edf242bc971
 link: https://open.spotify.com/episode/4R4O7MUHc220NDda2xvROU
 published_date: 2025-09-05T19:00:00-0800
