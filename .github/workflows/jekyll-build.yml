@@ -25,7 +25,7 @@ jobs:
       - name: 🛠️ Setup Ruby and Gems
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: '3.2' # 将 ruby-version 锁定为 3.2
+          ruby-version: '3.2.2' # 将 ruby-version 锁定为 3.2
           
       - name: 📦 Install Jekyll Dependencies
         # 安装你的 Gemfile 中定义的依赖
