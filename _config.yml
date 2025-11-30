@@ -19,6 +19,8 @@ podcast:
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+# 禁用安全模式，允许 GitHub Actions 自定义构建
+safe: false
 
 include: ['_includes', 'component-library']
 
