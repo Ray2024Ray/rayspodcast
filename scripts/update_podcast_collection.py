@@ -5,6 +5,9 @@ import re
 from pathlib import Path
 from datetime import datetime
 import time
+import yaml
+from dateutil import parser
+
 
 # 导入 json 模块，用于处理日期字符串等（虽然最终使用了entry.published）
 from json import dumps as json_dumps
@@ -14,8 +17,13 @@ from json import dumps as json_dumps
 # 你的播客 RSS Feed 地址 (***请替换为你真实的 RSS Feed URL***)
 PODCAST_RSS_URL = 'https://anchor.fm/s/1072535c0/podcast/rss' 
 
+# ⬇️ 新增：Jekyll 数据文件的目标路径
+DATA_FILE_PATH = Path('..') / '_data' / 'episodes.yml'
+
 # 你的 Jekyll 播客集合目录
 EPISODES_DIR = Path('collections/_episodes')
+# ⬇️ 新增：Jekyll 数据文件的目标路径
+DATA_FILE_PATH = Path('_data') / 'episodes.yml'
 
 # **************************************************
 
@@ -131,16 +139,70 @@ def update_collection(feed_url):
             
     return updates_made
 
+def update_data_file():
+    """
+    遍历 collections/_episodes 目录下的所有文件，提取 front matter，
+    并将其按日期降序排列后写入 _data/episodes.yml。
+    """
+    
+    # 存储所有剧集的元数据
+    all_episodes_data = []
+    
+    for file_path in EPISODES_DIR.glob("*.md"):
+        # 读取 Markdown 文件
+        post = frontmatter.load(file_path)
+        
+        # 提取所需的元数据
+        episode_data = {
+            'title': post.metadata.get('title'),
+            'guid': post.metadata.get('guid'),
+            'link': post.metadata.get('link'),
+            'audio_url': post.metadata.get('audio_url'),
+            # 使用文件名作为 slug/url 标识符
+            'slug': file_path.stem, 
+            # 确保日期字段存在，否则无法排序
+            'published_date': post.metadata.get('published_date') 
+        }
+        all_episodes_data.append(episode_data)
+
+    # 按发布日期（published_date）降序排序
+    # 按发布日期（published_date）降序排序
+    try:
+        # 使用 dateutil.parser.parse 来处理复杂的时区格式
+        all_episodes_data.sort(key=lambda x: parser.parse(x['published_date']), reverse=True)
+    except Exception as e:
+        print(f"Warning: Could not sort episodes by date. Error: {e}")
+
+    # 将数据写入 YAML 文件
+    try:
+        # 确保 _data 目录存在
+        DATA_FILE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(DATA_FILE_PATH, 'w', encoding='utf-8') as f:
+            # 使用 PyYAML 库写入 YAML
+            yaml.dump({'episodes': all_episodes_data}, f, allow_unicode=True, default_flow_style=False)
+        
+        print(f"-> Successfully updated data file: {DATA_FILE_PATH}")
+        return True
+    except Exception as e:
+        print(f"ERROR: Failed to write to {DATA_FILE_PATH}. {e}")
+        return False
+    
 if __name__ == "__main__":
     try:
         if update_collection(PODCAST_RSS_URL):
             print("Updates were made. Ready to commit.")
-            exit(0)
-        else:
-            print("No updates needed.")
-            exit(0) 
+        
+        # ⬇️ 新增：无论是否有新剧集，都应该同步 _data 文件
+        update_data_file() 
+        
+        # 脚本应该在这里退出
+        exit(0)
             
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
         # 失败时返回非零退出码
         exit(1)
+    
+
+
