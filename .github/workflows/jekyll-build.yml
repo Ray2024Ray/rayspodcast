@@ -17,32 +17,32 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: ⬇️ Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           lfs: true # 如果你有大文件支持，这是推荐设置
 
-      - name: 🛠️ Setup Ruby and Gems
+      - name: Setup Ruby and Gems
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '3.2' # 将 ruby-version 锁定为 3.2
           
-      - name: 📦 Install Jekyll Dependencies
+      - name: Install Jekyll Dependencies
         # 安装你的 Gemfile 中定义的依赖
         run: |
           gem install bundler 
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
 
-      - name: ⚙️ Build Jekyll site
+      - name: Build Jekyll site
         # 使用 bundler 运行 Jekyll build 命令
         run: bundle exec jekyll build
 
-      - name: 📂 Upload Pages artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site # Jekyll 默认的构建输出目录
 
-      - name: 🚀 Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
