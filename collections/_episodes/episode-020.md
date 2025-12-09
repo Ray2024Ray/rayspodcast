@@ -21,7 +21,7 @@ description: '<p>Today we are talking with Anna,
 guid: 2b44de8d-d371-47a3-bfbf-56b3572a1bdc
 language: English
 link: https://podcasters.spotify.com/pod/show/crossculturalstories/episodes/Episode-020-The-Organized-Life-How-the-Loan-Closet-Volunteer-Ana-Found-Her-Passion-Abroad-English-e3bhdoo
-published_date: Fri, 28 Nov 2025 20:00:00 GMT
+published_date: 2025-11-28T20:00:00+00:00
 tags: 
   - Stanford Volunteer
   - Life Passion

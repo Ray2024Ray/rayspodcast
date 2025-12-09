@@ -1,54 +1,37 @@
-name: Jekyll Site Build and Deploy
+name: 🎧 Automated Podcast Updater (Jekyll)
 
-# 当代码推送到 'main' 分支时运行此工作流
+# 触发条件：
 on:
-  push:
-    branches:
-      - main  # 确保这里是你的主要发布分支 (通常是 main 或 master)
+  schedule:
+    - cron: '0 8 * * 5' # 每周五 8:00 UTC 运行
+  workflow_dispatch:
 
-# 允许 GitHub Actions 编辑 pages
+# 🚨 【关键新增部分】全局授予 Action 写入代码的权限
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
-  build_and_deploy:
+  update_data:
     runs-on: ubuntu-latest
-
-    # ⬇️ 关键修改：在这里添加 environment 配置
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-   
-    
     steps:
-      - name: Checkout code
+      - name: ⬇️ Checkout Repository
+        # 这里不需要手动设置 token 了，因为全局权限已经配置
         uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python 3
+        uses: actions/setup-python@v5
         with:
-          lfs: true # 如果你有大文件支持，这是推荐设置
+          python-version: '3.x'
 
-      - name: Setup Ruby and Gems
-        uses: actions/setup-ruby@v1
+      - name: ⚙️ Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: 🏃 Run Podcast Update Script
+        # ... 这里省略了 run: python scripts/update_podcast_collection.py 等步骤 ...
+
+      - name: 💾 Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          ruby-version: '3.2' # 将 ruby-version 锁定为 3.2
-          
-      - name: Install Jekyll Dependencies
-        # 安装你的 Gemfile 中定义的依赖
-        run: |
-          gem install bundler 
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-
-      - name: Build Jekyll site
-        # 使用 bundler 运行 Jekyll build 命令
-        run: bundle exec jekyll build
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./_site # Jekyll 默认的构建输出目录
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          commit_message: 'Automated: Update podcast episodes via RSS feed 🎧'
+          file_pattern: '_data/episodes.yml' 
+          commit_author: 'Ray2024Ray <goodrui86@gmail.com>'
