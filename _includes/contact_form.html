@@ -1,0 +1,34 @@
+<section class="section">
+  <div class="container">
+    <div class="section__info">
+      <div class="section__head">
+        <h2 class="section__title">Get in touch</h2>
+      </div>
+      <div class="section__description">
+        <p class="contact-description">
+          Have a story to share or want to collaborate? Send me a message below.
+        </p>
+
+      </div>
+    </div>
+
+    <form action="https://formspree.io/f/mjkjbdgd" method="POST" class="c-contact-form__form" style="max-width:580px;margin:0 auto;">
+      <div class="c-contact-form__form-group">
+        <input class="c-contact-form__form-input" type="text" name="name" placeholder="Your name..." required>
+      </div>
+      <div class="c-contact-form__form-group">
+        <input class="c-contact-form__form-input" type="email" name="_replyto" placeholder="Your email..." required>
+      </div>
+      <div class="c-contact-form__form-group">
+        <textarea class="c-contact-form__form-input" name="message" rows="6" placeholder="Your message..." required></textarea>
+      </div>
+
+      <input type="text" name="_gotcha" style="display:none">
+      <input type="hidden" name="_next" value="{{ page.url | absolute_url }}">
+
+      <div class="c-contact-form__form-group c-contact-form__form-group--button">
+        <button type="submit" class="c-button c-button--primary c-button--large">Send now</button>
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Test Episodes</title>
+  <meta name="description" content="Cross-cultural Stories | 他乡与故乡">
+  <link rel="canonical" href="https://www.crossculturalstories.me/test-episodes/">
+
+  <!-- Social -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Test Episodes – Ray's Podcast">
+  <meta name="twitter:description" content="">
+  <meta property="og:title" content="Test Episodes – Ray's Podcast">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+
+  <!-- Fonts & theme CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/main.css">
+
+  <style>
+    /* 关闭部分主题在 body 上的遮罩，避免整页被白层挡住 */
+    body:after, body.is-in:after { visibility:hidden!important; opacity:0!important; pointer-events:none!important; }
+
+    /* ===== 顶部导航（Home 左，右侧：汉堡 + 语言） ===== */
+    .cc-header{ position:sticky; top:0; z-index:100; background:rgba(242,246,255,.85); backdrop-filter:saturate(180%) blur(8px); border-bottom:1px solid #e8edf6; }
+    .cc-header .header__inner{ max-width:1200px; margin:0 auto; padding:14px 12px; display:flex; align-items:baseline; justify-content:space-between; position:relative; }
+
+    .brand{ color:#110e38; font-weight:900; font-size:20px; letter-spacing:.5px; text-decoration:none; }
+    .brand:hover{ opacity:.85; }
+
+    /* 右侧容器：先放汉堡，再放语言（语言在汉堡右边） */
+    .header-right{ display:flex; align-items:center; gap:16px; }
+    .header-right .nav__link {
+      font-size: 14px; /* Smaller font size */
+      white-space: nowrap; /* Prevent text wrapping */
+      text-decoration: none;
+      color: #110e38;
+      font-weight: 700;
+    }
+    .header-right .nav__link:hover {
+      opacity: .75;
+    }
+
+    /* 汉堡 */
+    .nav-toggle{ display:flex; flex-direction:column; justify-content:center; align-items:center; width:36px; height:28px; border:0; background:transparent; cursor:pointer; }
+    .nav-toggle span{ width:22px; height:2px; background:#110e38; border-radius:2px; display:block; }
+    .nav-toggle span+span{ margin-top:5px; }
+
+    /* 语言切换（只保留中文/韩语，英文为默认首页） */
+    .lang-switch{ display:flex; gap:14px; }
+    .lang-switch a{ text-decoration:none; color:#12102f; font-weight:700; }
+    .lang-switch a:hover{ opacity:.75; }
+    .lang-switch .cc-active{ color:#1495a7; }
+
+
+ /* —— Main navigation for episodes —— */
+    .main-nav {
+      display: block;
+    }
+    .main-nav .nav__list {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .main-nav .nav__link {
+      display: block;
+      padding: 8px 10px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #110e38;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .main-nav .nav__link:hover {
+      opacity: .75;
+    }
+
+    .c-blog-card__inner {
+      display: flex;
+      align-items: center;
+    }
+
+    .c-blog-card__image-wrapper {
+      width: 100px; /* Fixed width for image */
+      flex-shrink: 0;
+      margin-right: 15px; /* Spacing between image and text */
+    }
+
+    .c-blog-card__image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      border-radius: inherit;
+    }
+
+    .c-blog-card__text-content {
+      flex-grow: 1; /* Allow text content to take remaining space */
+    }
+
+    .c-blog-card__content { /* This class is now inside c-blog-card__text-content */
+      height: auto; /* Let content determine height */
+      overflow: visible; /* Allow content to be visible */
+    }
+
+    .c-blog-card__title {
+      font-size: 18px; /* Adjusted font size for title */
+    }
+
+    .c-blog-card__excerpt {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 14px; /* Adjusted font size for excerpt */
+    }
+
+    /* 英文大标题默认一行，小屏自动换行 */
+    .c-hero__title{ white-space:nowrap; font-size:clamp(32px,5vw,56px); }
+    @media (max-width:820px){ .c-hero__title{ white-space:normal; } }
+
+    /* —— 封面图尺寸调整 —— */
+    .c-hero__image {
+      width: 100%;
+      max-width: 400px;       /* 最大宽度缩小为 280px */
+      min-height: 400px;      /* 保证有高度 */
+      height: auto;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #d5dce3;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      margin: 0 auto;         /* 在容器中水平居中 */
+    }
+    .c-hero__image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      border-radius: inherit;
+    }
+
+
+    @media (max-width: 1024px) {
+      .c-hero__image {
+        max-width: 200px;
+        min-height: 120px;
+      }
+    }
+    .episode-page .c-blog-card {
+      max-width: 500px; /* Set to 500px as requested by the user */
+      margin: 0 auto 20px auto; /* Center the card and add bottom margin */
+    }
+    
+    /* —— 调整订阅平台按钮间距 —— */
+    .subscribe-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      row-gap: 20px;
+      justify-items: center;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .subscribe-buttons .c-button {
+      width: 100%;
+      max-width: 240px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+  <body class=" ">
+    <!-- begin header -->
+<header class="cc-header">
+  <div class="header__inner">
+    <!-- 左：Home -->
+    <a class="brand" href="/">Home</a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="/episodes.html" class="nav__link">All Episodes</a></li>
+        <li><a href="/episodes_en.html" class="nav__link">English Episodes</a></li>
+        <li><a href="/episodes_zh.html" class="nav__link">Chinese Episodes</a></li>
+        <li><a href="/episodes_ko.html" class="nav__link">Korean Episodes</a></li>
+      </ul>
+    </nav>
+
+    <!-- 右：先汉堡，再语言（语言在最右边） -->
+        <div class="header-right">
+          <a href="/contact/" class="nav__link">Contact Me</a>
+          <!-- <button class="nav-toggle" id="ccMenuBtn" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button> -->
+        </div>
+
+    <!-- 下拉菜单（竖排） -->
+    <!-- <nav class="main-nav" id="ccMainNav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="/episodes/" class="nav__link">All episodes</a></li>
+        <li><a href="/episodes/en/" class="nav__link">All English episodes</a></li>
+        <li><a href="/episodes/zh/" class="nav__link">所有中文专辑</a></li>
+        <li><a href="/episodes/ko/" class="nav__link">모든 한국어 에피소드</a></li>
+        <li><a href="/contact/" class="nav__link">Get in touch</a></li>
+      </ul>
+    </nav> -->
+  </div>
+</header>
+<!-- end header -->
+<script src="/assets/js/menu.js?v=1" defer></script>
+
+
+    <main>
+      <h1>Test Episodes</h1>
+
+<div class="row">
+
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-21/" target="_blank" rel="noopener">
+          <img src="images/episodes/ep021.png" alt="Episode 021 When My Roommate Became My Wife (English)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">International-couple</span><span class="c-blog-card__tag">work-life-balance</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-21/" target="_blank" rel="noopener">Episode 021 When My Roommate Became My Wife (English)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">Ilor and Madina's story began in the shared kitchen of a university apartment in Israel. From roommates to lovers, from...</p>
+        <p class="c-blog-card__date">2025-12-05</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-020/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1764205300272-e9fc0cf1ee7b1.jpg" alt="Episode 020 The Organized Life: How the Loan Closet Volunteer Ana Found Her Passion Abroad (English)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Stanford Volunteer</span><span class="c-blog-card__tag">Life Passion</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-020/" target="_blank" rel="noopener">Episode 020 The Organized Life: How the Loan Closet Volunteer Ana Found Her Passion Abroad (English)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">Today we are talking with Anna, a guest who embodies leadership and dedication. Ana came to Stanford as a spouse...</p>
+        <p class="c-blog-card__date">2025-11-28 20:00:00 +0000</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-019/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1763778381380-641f5913f439a.jpg" alt="Episode 019 Trust Yourself: A Story of Love, PhDs, and Pastry in a New Land (English)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Family Growth</span><span class="c-blog-card__tag">Couple Guest</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-019/" target="_blank" rel="noopener">Episode 019 Trust Yourself: A Story of Love, PhDs, and Pastry in a New Land (English)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">What does it take to rebuild your life and career in a foreign country? Juan and Carolina share their cross-cultural...</p>
+        <p class="c-blog-card__date">2025-11-22 02:26:42 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-018/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1763075714740-ed08afc13a19.jpg" alt="Episode 018 Making His Hometown an Island of Hope: A Village Chief&#39;s Global Education (English)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">sustainable community</span><span class="c-blog-card__tag">Blended Life</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-018/" target="_blank" rel="noopener">Episode 018 Making His Hometown an Island of Hope: A Village Chief's Global Education (English)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">This is Episode 18, the English version of Episode 17, which was originally recorded in Chinese. In this episode, you’ll...</p>
+        <p class="c-blog-card__date">2025-11-15 01:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-017/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1762468722211-579af8ad7db15.jpg" alt="Episode 017 A Rock &#39;n&#39; Roll Village Chief: A &quot;Tale of Two Cities&quot; from a Hainan Fishing Village to Silicon Valley (Chinese)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Tale of Two Cities</span><span class="c-blog-card__tag">Community Building</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-017/" target="_blank" rel="noopener">Episode 017 A Rock 'n' Roll Village Chief: A "Tale of Two Cities" from a Hainan Fishing Village to Silicon Valley (Chinese)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">Guest: Alan (Village Chief Tan) — Village Chief of Laoshi Village in Hainan, structural engineer, and guitarist in a Bay Area...</p>
+        <p class="c-blog-card__date">2025-11-07 20:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-016/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1761871586786-448430f4a7ac7.jpg" alt="Episode 016 Global Roots: A Chinese Scientist&#39;s Search for Belonging (English)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Career Development</span><span class="c-blog-card__tag">Cross-cultural</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-016/" target="_blank" rel="noopener">Episode 016 Global Roots: A Chinese Scientist's Search for Belonging (English)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">In this special episode, the tables are turned as podcast host Ray, me, becomes the interviewee. Gently guided by Stanford...</p>
+        <p class="c-blog-card__date">2025-10-31 19:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-015/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1761362891820-1115976b9e056.jpg" alt="Episode 015 Cultural Close-Ups: Brad&#39;s Story of Volunteering at Stanford (English)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Stanford</span><span class="c-blog-card__tag">Volunteer</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-015/" target="_blank" rel="noopener">Episode 015 Cultural Close-Ups: Brad's Story of Volunteering at Stanford (English)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">In this episode, our guest Brad shares his journey as a long-term volunteer at CCIS in Stanford’s Bechtel International Center.Together,...</p>
+        <p class="c-blog-card__date">2025-10-25 03:29:50 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-014/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1760593107690-217749294f4b1.jpg" alt="Episode 014 From Temple Silence to Stanford Dreams (English)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Mental Health</span><span class="c-blog-card__tag">Healing</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-014/" target="_blank" rel="noopener">Episode 014 From Temple Silence to Stanford Dreams (English)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">This Episode is in English and generated from Episode 013 by an AI Tool.What happens when the formative six years...</p>
+        <p class="c-blog-card__date">2025-10-17 19:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-013/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1759900362120-4dec8442dd3e4.jpg" alt="Episode 013 Growth Defines Home: Yu&#39;En’s Definition of Foreign Land (Chinese)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Self-awareness</span><span class="c-blog-card__tag">US Academic Environment</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-013/" target="_blank" rel="noopener">Episode 013 Growth Defines Home: Yu'En’s Definition of Foreign Land (Chinese)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">This episode features Yu'En, a scholar from Taiwan currently working as a Postdoctoral Fellow at Stanford. His life trajectory has involved...</p>
+        <p class="c-blog-card__date">2025-10-10 19:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-012/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1759020390682-71b8add8966bc.jpg" alt="Episode 012 Redefining Homeland and Humanity in the Age of AI (English)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">AI</span><span class="c-blog-card__tag">Self-discovery</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-012/" target="_blank" rel="noopener">Episode 012 Redefining Homeland and Humanity in the Age of AI (English)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">This Episode is in English and generated from Episode 011 by AI. I hope you find this episode interesting!In this...</p>
+        <p class="c-blog-card__date">2025-10-03 19:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-011/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1758863104021-b1cba600d8c5f.jpg" alt="Episode 011 Pleasant Melancholy, and the Open Road: Why Nostalgia is Childhood, and Wandering is Exploration (Chinese)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Nostalgia</span><span class="c-blog-card__tag">Wandering</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-011/" target="_blank" rel="noopener">Episode 011 Pleasant Melancholy, and the Open Road: Why Nostalgia is Childhood, and Wandering is Exploration (Chinese)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">In Episode 11, we have the very first male guest I've interviewed since starting the podcast, Brian!Brian is my fellow Hénán native....</p>
+        <p class="c-blog-card__date">2025-09-26 19:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-010/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1758312524116-b34a6483cb43d.jpg" alt="Episode 010 Hometown is Where the Heart Finds Peace (English)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Hometown</span><span class="c-blog-card__tag">Identity</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-010/" target="_blank" rel="noopener">Episode 010 Hometown is Where the Heart Finds Peace (English)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">Welcome to Episodes 9 (Chinese) and 10 (English)! I am deeply honored to host my friend, Niya. This also marks...</p>
+        <p class="c-blog-card__date">2025-09-19 20:09:34 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-009/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1758263109297-a7ca389aa09e4.jpg" alt="Episode 009 A Year Abroad, My Life Philosophy Changed (Chinese)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Life Philosophy</span><span class="c-blog-card__tag">Abroad</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-009/" target="_blank" rel="noopener">Episode 009 A Year Abroad, My Life Philosophy Changed (Chinese)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">Welcome to Episodes 9 (Chinese) and 10 (English)! I am deeply honored to host my friend, Niya. This also marks...</p>
+        <p class="c-blog-card__date">2025-09-19 19:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-008/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1757028581523-d007e1dc5da8f.jpg" alt="Episode 008 The &quot;Me&quot; That Bloomed in a Foreign Land (Korean, Part2)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Self-understanding</span><span class="c-blog-card__tag">Privilege</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-008/" target="_blank" rel="noopener">Episode 008 The "Me" That Bloomed in a Foreign Land (Korean, Part2)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">This Episode is in Korean.Welcome to Cross-cultural Stories, the podcast that shares tales of emotions, changes, confusion, and growth that...</p>
+        <p class="c-blog-card__date">2025-09-12 19:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-007/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1757028101092-4f833f2bd4dcd.jpg" alt="Episode 007 The &quot;Me&quot; That Bloomed in a Foreign Land (Korean, Part1)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Hometown</span><span class="c-blog-card__tag">Foreign Land</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-007/" target="_blank" rel="noopener">Episode 007 The "Me" That Bloomed in a Foreign Land (Korean, Part1)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">This Episode is in Korean.Welcome to Cross-cultural Stories.In this special two-part series, we delve into a profound conversation with my...</p>
+        <p class="c-blog-card__date">2025-09-05 19:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-006/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1756017107381-b81bd79804d8f.jpg" alt="Episode 006 Life Tips Learned from Cross-Cultural Journeys (Korean, Part2)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Cross-cultural</span><span class="c-blog-card__tag">Student Life</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-006/" target="_blank" rel="noopener">Episode 006 Life Tips Learned from Cross-Cultural Journeys (Korean, Part2)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">This episode is in Korean. Soo’s story is one of crossing borders, cultures, and identities. Born in Korea, she studied...</p>
+        <p class="c-blog-card__date">2025-08-29 19:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-005/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1755816659002-9265fa524f966.jpg" alt="Episode 005 Life Tips Learned from Cross-Cultural Journeys (Korean, Part1)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Cross-cultural</span><span class="c-blog-card__tag">Student Life</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-005/" target="_blank" rel="noopener">Episode 005 Life Tips Learned from Cross-Cultural Journeys (Korean, Part1)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">The language of this episode is Korean. Soo’s story is one of crossing borders, cultures, and identities. Born in Korea,...</p>
+        <p class="c-blog-card__date">2025-08-21 22:51:27 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-004/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1755242330873-8a82fdb0d07b7.jpg" alt="Episode 004 From Emergency Rooms to Classrooms: Suki’s Cross-Cultural Life (Chinese, Part 2)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Cross-cultural</span><span class="c-blog-card__tag">Cultural Differences</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-004/" target="_blank" rel="noopener">Episode 004 From Emergency Rooms to Classrooms: Suki’s Cross-Cultural Life (Chinese, Part 2)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">From the Classroom to Everyday Life: Suki’s Cross-Cultural Life Notes (Part 2)In Part 1, we talked with Suki from Taiwan...</p>
+        <p class="c-blog-card__date">2025-08-16 00:00:00 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-003/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1755242256700-9474c038e61c.jpg" alt="Episode 003 From Emergency Rooms to Classrooms: Suki’s Cross-Cultural Life (Chinese, Part 1)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Cross-cultural</span><span class="c-blog-card__tag">Cultural Adaptation</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-003/" target="_blank" rel="noopener">Episode 003 From Emergency Rooms to Classrooms: Suki’s Cross-Cultural Life (Chinese, Part 1)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">In this episode, I invited Suki, who originally from Taiwan, and is a nutritionist with years of professional experience. As...</p>
+        <p class="c-blog-card__date">2025-08-09 05:00:03 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-002/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1755672364705-9c6fd44dd1b85.jpg" alt="Episode002 Finding Yourself Among Cultures (English)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Identity</span><span class="c-blog-card__tag">Cross-cultural</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-002/" target="_blank" rel="noopener">Episode002 Finding Yourself Among Cultures (English)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">Episode 002 Finding Yourself Among Cultures — A Conversation with KateDuration: ~35 minWelcome to Multi-Cultural Stories — a podcast where...</p>
+        <p class="c-blog-card__date">2025-08-01 23:08:26 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div class="col col-4 col-t-6 col-m-12">
+  <article class="c-blog-card">
+    <div class="c-blog-card__inner">
+      <div class="c-blog-card__image-wrapper">
+        <a class="c-blog-card__image" href="/episodes/episode-001/" target="_blank" rel="noopener">
+          <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1752208065858-ced9209826f6b.jpg" alt="Episode001 From Seoul to Silicon Valley: My Leap of Faith (Chinese)">
+        </a>
+      </div>
+      <div class="c-blog-card__text-content">
+        <div class="c-blog-card__tags-box">
+          <span class="c-blog-card__tag">Career Change</span><span class="c-blog-card__tag">Culture Shock</span>
+        </div>
+        <h3 class="c-blog-card__title">
+          <a href="/episodes/episode-001/" target="_blank" rel="noopener">Episode001 From Seoul to Silicon Valley: My Leap of Faith (Chinese)</a>
+        </h3>
+        <p class="c-blog-card__excerpt">In this very first episode of Cross-Cultural Stories, I share my personal journey of leaving behind a stable job at...</p>
+        <p class="c-blog-card__date">2025-07-11 04:41:26 -0800</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+</div>
+
+    </main>
+
+    <!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+
+        
+
+        <ul class="footer_nav list-reset">
+          
+          <li class="footer_nav__item">
+            <a href="/" class="footer_nav__link">Home</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/episodes.html" class="footer_nav__link">All Episodes</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/episodes_en.html" class="footer_nav__link">English Episodes</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/episodes_zh.html" class="footer_nav__link">Chinese Episodes</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/episodes_ko.html" class="footer_nav__link">Korean Episodes</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/contact/" class="footer_nav__link">Contact Me</a>
+          </li>
+          
+        </ul>
+
+        <div class="copyright"><p> 2021 &copy; <a href="/">Vonge</a>. Template by <a href="https://cloudcannon.com/">CloudCannon</a>.</p></div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var btn = document.getElementById('ccMenuBtn');
+      var nav = document.getElementById('ccMainNav');
+      if (!btn || !nav) return;
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('click', function(e){
+        if (!nav.classList.contains('is-open')) return;
+        if (!nav.contains(e.target) && !btn.contains(e.target)) {
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    });
+  </script>
+  </body>
+</html>
