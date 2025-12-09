@@ -26,6 +26,9 @@ jobs:
       - name: 🏗️ Build Jekyll Site
         run: bundle exec jekyll build
 
+      - name: 🐛 Debug: List built episode files
+        run: ls -R _site/episodes
+
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
