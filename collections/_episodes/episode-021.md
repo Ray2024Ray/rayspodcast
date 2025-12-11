@@ -7,7 +7,7 @@ tags:
   - International-couple
   - work-life-balance
 language: English
-link: "https://open.spotify.com/show/6SNCpFk0GlnuIaLw8D3QGA" # Placeholder: Please update with the direct Spotify episode link if available.
+link: https://open.spotify.com/episode/0WhgrwdYJc7Z46SveVhucT # Placeholder: Please update with the direct Spotify episode link if available.
 ---
 
 Episode 21 content will go here. You can add more detailed show notes or a transcript below this front matter.

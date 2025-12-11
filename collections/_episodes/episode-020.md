@@ -1,7 +1,7 @@
 ---
 audio_url: https://anchor.fm/s/1072535c0/podcast/play/111768792/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-10-27%2F21dd02fb-8129-b15a-c683-1b7ff0984027.mp3
 cover: https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/44048464/44048464-1764205300272-e9fc0cf1ee7b1.jpg
-description: '<p>Today we are talking with Anna,
+description: '<p>Today we are talking with Ana,
   a guest who embodies leadership and dedication. Ana came to Stanford as a spouse
   from Guadalajara, Mexico, and quickly transitioned from her previous role as a project
   manager to a key volunteer at the CCIS. She now helps lead the Loan Closet, a system
@@ -20,10 +20,10 @@ description: '<p>Today we are talking with Anna,
   better connect with others</li></ul>'
 guid: 2b44de8d-d371-47a3-bfbf-56b3572a1bdc
 language: English
-link: https://podcasters.spotify.com/pod/show/crossculturalstories/episodes/Episode-020-The-Organized-Life-How-the-Loan-Closet-Volunteer-Ana-Found-Her-Passion-Abroad-English-e3bhdoo
+link: https://open.spotify.com/episode/0mYslnalEr1iDxaKZ3OmXa
 published_date: 2025-11-28T20:00:00+00:00
 tags: 
-  - Stanford Volunteer
+  - Loan&Closet Volunteer
   - Life Passion
 title: 'Episode 020 The Organized Life: How the Loan Closet Volunteer Ana Found Her Passion Abroad (English)'
 ---
