@@ -17,11 +17,13 @@ jobs:
       - name: ⬇️ Checkout
         uses: actions/checkout@v4
 
-      - name: 💎 Setup Ruby and Bundler
+      - name: 💎 Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: false
+
+      - name: ⚙️ Install Dependencies
+        run: bundle install
 
       - name: 🏗️ Build Jekyll Site
         run: bundle exec jekyll build
