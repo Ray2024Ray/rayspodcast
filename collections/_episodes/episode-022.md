@@ -5,7 +5,7 @@ cover: "images/episodes/ep022.png"
 published_date: "2025-12-12"
 tags:
   - Art Without Borders
-  - Community Strenth
+  - Community Strength
 language: English
 link: https://open.spotify.com/episode/3Bj7nfR90F1Oj5dTsb5sbV?si=hcR2Qyt2T6Wwogz8kOUZkA # Placeholder: Please update with the direct Spotify episode link if available.
 ---
