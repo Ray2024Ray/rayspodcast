@@ -2,7 +2,7 @@
 title: "Episode 025 Are Short-Form Dramas Addictive? A Sociological Breakdown of the Digital Comfort Food (Chinese)"
 description: "In this bonus episode, our speaker, Producer Wanzi, who has a background in sociology, puts theory into practice."
 cover: "images/episodes/ep025.png"
-published_date: "2026-01-26"
+published_date: "2026-01-30"
 tags:
   - Short-Form Dramas
   - Digital Comfort Food
