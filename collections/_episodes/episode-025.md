@@ -7,7 +7,7 @@ tags:
   - Short-Form Dramas
   - Digital Comfort Food
 language: Chinese
-link: https://open.spotify.com/episode/7L9flrEciaBlaWs8SxQZCb # Placeholder: Please update with the direct Spotify episode link if available.
+link: https://open.spotify.com/episode/7L9flrEciaBlaWs8SxQZCb  # Placeholder: Please update with the direct Spotify episode link if available.
 ---
 
 Episode 25 content will go here. You can add more detailed show notes or a transcript below this front matter.
