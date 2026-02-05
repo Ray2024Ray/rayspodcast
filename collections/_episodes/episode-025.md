@@ -1,6 +1,6 @@
 ---
 title: "Episode 025 Are Short-Form Dramas Addictive? A Sociological Breakdown of the Digital Comfort Food (Chinese)"
-description: '<p>In this bonus episode, our speaker, Producer Wanzi, who has a bacground in sociology, puts theory into practice. Using GOffman's front and backstage theory and symbolic interacionism, she dissects the "undercurrent chemistry" at the heart of short dramas.'
+description: 
 cover: "images/episodes/ep025.png"
 published_date: "2026-01-26"
 tags:
