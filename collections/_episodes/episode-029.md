@@ -1,5 +1,5 @@
 ---
-title: 'Episode 029 /"Why Not?: How Saying Yes Changed Everything/"(English)'
+title: 'Episode 029 Why Not?: How Saying Yes Changed Everything (English)'
 description: 'In this episode, I’m joined by Jeanette, a human resources and talent management specialist from Buenos Aires, Argentina.'
 cover: "images/episodes/ep029.png"
 published_date: "2026-02-20"
