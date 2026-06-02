@@ -1,5 +1,5 @@
 ---
-title: 'Episode 030 "You Have to Put Yourself Out There": Kumud's Guide to Building a New Life in the US (English)'
+title: 'Episode 030 You Have to Put Yourself Out There: Kumud's Guide to Building a New Life in the US (English)'
 description: 'How do you find your footing in a completely new country? For Kumud, it started with a lonely moment at a party and ended with her finding a family at the Bechtel International Center.'
 cover: "images/episodes/ep030.png"
 published_date: "2026-02-27"
